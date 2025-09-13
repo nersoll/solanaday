@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Витрина монет</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<header class="topbar">
+<div class="container row between">
+<h1 class="brand">Token Market</h1>
+<nav class="row gap">
+<a class="btn" href="collection.html">Витрина</a>
+<a class="btn primary" href="add.html">Добавить монету</a>
+</nav>
+</div>
+</header>
+
+
+<main class="container stack">
+<section class="card">
+<div class="row wrap gap">
+<input id="search" class="input" placeholder="Поиск по названию или mint..." />
+<select id="sort" class="input">
+<option value="name">Сортировать: Название</option>
+<option value="priceDesc">Сортировать: Цена ↓</option>
+<option value="priceAsc">Сортировать: Цена ↑</option>
+<option value="qtyDesc">Сортировать: Кол-во ↓</option>
+<option value="qtyAsc">Сортировать: Кол-во ↑</option>
+<option value="newest">Сортировать: Новые</option>
+</select>
+<button id="reset" class="btn">Сброс</button>
+</div>
+</section>
+
+
+<section class="grid" id="cards"></section>
+
+
+<section class="muted center" id="empty" style="display:none">Монеты не найдены</section>
+</main>
+
+
+<script src="js/data.js"></script>
+<script src="js/list.js"></script>
+</body>
+</html>

@@ -9,11 +9,26 @@
   <script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@project-serum/anchor@0.27.0/dist/anchor.iife.js"></script>
 
-  <style>
 
+<style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:#0b0d10;color:#e6e8ea;margin:0;padding:24px}
+    .app{max-width:880px;margin:0 auto;display:grid;gap:16px}
+    .card{background:#12151a;border:1px solid #1e232b;border-radius:14px;padding:16px}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    input,button{padding:10px 12px;border-radius:10px;border:1px solid #26303a;background:#0f1318;color:#e6e8ea}
+    button{cursor:pointer}
+    button.primary{background:#2563eb;border-color:#2563eb}
+    .muted{opacity:.8;font-size:.95em}
+    code.block{display:block;white-space:pre-wrap;background:#0f1318;border:1px solid #1e232b;border-radius:10px;padding:12px}
+    label{display:block;margin-bottom:6px;opacity:.9}
+    .grid{display:grid;gap:12px}
+    .grid.two{grid-template-columns:1fr 1fr}
+    @media (max-width:720px){.grid.two{grid-template-columns:1fr}}
   </style>
+
 </head>
 <body>
+  
   <div class="app">
     <div class="card">
       <div class="row">
