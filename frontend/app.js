@@ -1,5 +1,5 @@
-import { Connection, PublicKey } from "@solana/web3.js";
-import { AnchorProvider, Program } from "@project-serum/anchor";
+const { Connection, PublicKey, Keypair, Transaction } = solanaWeb3;
+const anchor = window.anchor;   
 
 const network = "https://api.devnet.solana.com";
 const connection = new Connection(network, "processed");

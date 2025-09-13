@@ -1,17 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Solana dApp</title>
+  <meta charset="UTF-8" />
+  <title>Акции для людей — demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <!-- Глобали -->
   <script src="https://unpkg.com/@solana/web3.js@1.95.3/lib/index.iife.js"></script>
-  <script src="https://unpkg.com/@project-serum/anchor@0.27.0/dist/anchor.iife.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@project-serum/anchor@0.27.0/dist/anchor.iife.js"></script>
+
+  <style>
+
+  </style>
 </head>
 <body>
-  <h1>My Solana dApp</h1>
+  <div class="app">
+    <div class="card">
+      <div class="row">
+        <button id="btn-connect" class="primary">Подключить Phantom</button>
+        <div id="wallet-status" class="muted">Кошелёк: не подключён</div>
+      </div>
+    </div>
 
-  <button onclick="createToken()">Create Token</button>
-  <button onclick="mintTokens(1000)">Mint 1000 token</button>
+    <div class="card grid two">
+      <div>
+        <h3>1) Создать токен (mint)</h3>
+        <p class="muted">Создаст новый mint и твой ATA (associated token account).</p>
+        <div class="row">
+          <button id="btn-create" class="primary">Создать токен</button>
+        </div>
+        <label>Mint адрес</label>
+        <code id="mint-address" class="block">—</code>
+        <label>Твой ATA</label>
+        <code id="artist-ata" class="block">—</code>
+      </div>
 
-  <script type = "module" src="app.js"></script>
+      <div>
+        <h3>2) Минт себе</h3>
+        <div class="row">
+          <input id="mint-amount" type="number" placeholder="Количество (u64)" min="0" value="1000" />
+          <button id="btn-mint" class="primary">Заминдить на свой ATA</button>
+        </div>
+        <p class="muted">ВНИМАНИЕ: количество передаётся как есть (зависит от decimals, установленного в программе).</p>
+      </div>
+    </div>
+
+    <div class="card grid two">
+      <div>
+        <h3>3) Перевести человеку</h3>
+        <label>Адрес получателя (wallet pubkey)</label>
+        <input id="recipient" placeholder="Введите адрес кошелька получателя" />
+        <label>Сумма перевода</label>
+        <div class="row">
+          <input id="transfer-amount" type="number" placeholder="Количество" min="0" value="100" />
+          <button id="btn-transfer" class="primary">Перевести</button>
+        </div>
+        <p class="muted">Создадим ATA получателя при необходимости и сделаем SPL transfer с твоего ATA.</p>
+      </div>
+
+      <div>
+        <h3>4) Балансы</h3>
+        <div class="row">
+          <button id="btn-refresh">Обновить</button>
+        </div>
+        <label>Твой баланс</label>
+        <code id="artist-balance" class="block">—</code>
+        <label>Баланс получателя</label>
+        <code id="recipient-balance" class="block">—</code>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Логи</h3>
+      <code id="log" class="block">Готово.</code>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
